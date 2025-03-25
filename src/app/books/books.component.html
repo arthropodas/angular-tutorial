@@ -1,0 +1,28 @@
+<p>Books works!</p>
+<h2>
+    Inside the Books component
+</h2>
+<h1>
+    my name is {{ myName }}
+</h1>
+<div *ngIf="isShowing">
+
+    <li>
+        <img [src]="src" alt="{{ name }}" />
+        {{ name }} by {{ author }}
+    </li>
+    <li>
+        <img [src]="src" alt="{{ name }}" />
+        {{ name }} by {{ author }}
+    </li>
+</div>
+
+<button [disabled]="isDisable" (click)="handleClick()">
+    button
+
+</button>
+<button (click)="toggleBook()">
+    {{ isShowing ? 'Hide Book' : 'Show Book' }}
+ </button>
+<input type="text" [(ngModel)]="myName"/>
+
