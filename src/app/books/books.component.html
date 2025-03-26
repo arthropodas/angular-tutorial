@@ -5,7 +5,7 @@
 <h1>
     my name is {{ myName }}
 </h1>
-<div *ngIf="isShowing">
+<ul *ngIf="isShowing">
 
     <li>
         <img [src]="src" alt="{{ name }}" />
@@ -15,7 +15,7 @@
         <img [src]="src" alt="{{ name }}" />
         {{ name }} by {{ author }}
     </li>
-</div>
+</ul>
 
 <button [disabled]="isDisable" (click)="handleClick()">
     button
@@ -23,6 +23,22 @@
 </button>
 <button (click)="toggleBook()">
     {{ isShowing ? 'Hide Book' : 'Show Book' }}
- </button>
-<input type="text" [(ngModel)]="myName"/>
+</button>
+<input type="text" [(ngModel)]="myName" />
+
+<button (click)="toggleDiv()">
+    {{isVisible?"hide ":"show"}}
+</button>
+<div style="color: blue; " *ngIf="isVisible">
+    hi from i am
+</div>
+
+<ul *ngIf="true" class="books">
+
+    <ng-container *ngFor="let singleBook of books; let i=index">
+        <app-book (bookEmit)="addTocart($event)" [singleBook]="singleBook">
+         
+        </app-book>
+    </ng-container>
+</ul>
 

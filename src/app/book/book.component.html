@@ -1,0 +1,17 @@
+<li class="book">
+
+    <img [src]="singleBook.src" style="width: max-content;" />
+
+    <p class="title">
+        author {{singleBook.name.toString() | titlecase}} by {{singleBook.name}}
+    </p>
+
+    <p class="currency">
+        amount {{singleBook.amount.toString()| currency:'INR':'symbol':'1.2-2' }}
+    </p>
+
+
+    <button (click)="addToCart()">
+        Add to cart
+    </button>
+</li>
