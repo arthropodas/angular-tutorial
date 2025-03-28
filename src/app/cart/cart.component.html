@@ -1,0 +1,27 @@
+<p>Cart works!</p>
+
+<!-- Show if the cart has items -->
+<div *ngIf="getCart().length > 0">
+  Number of elements: {{ getCart().length }}
+</div>
+
+<!-- Show if the cart is empty -->
+<div *ngIf="getCart().length === 0">
+  No more books
+</div>
+
+<div style="display: flex;flex-wrap: wrap; padding: 20px; justify-content: center;">
+
+    <div *ngFor="let cart of getCart()" style="width:400px ;padding: 10px;">
+      <img [src]="cart.src" alt="Book Image" style="width: 100%;" />
+    
+      <p class="title">
+        Author: {{ cart.name.toString() | titlecase }} by {{ cart.author }}
+      </p>
+    
+      <p class="currency">
+        Amount: {{ cart.amount.valueOf() | currency: 'INR' : 'symbol' : '1.2-2' }}
+      </p>
+  
+    </div>
+</div>

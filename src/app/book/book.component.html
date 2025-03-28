@@ -11,7 +11,10 @@
     </p>
 
 
-    <button (click)="addToCart()">
+    <button *ngIf="!isInCart" (click)="addToCart()">
         Add to cart
+    </button>
+    <button *ngIf="isInCart"(click)="removeCart()">
+        remove from cart
     </button>
 </li>
