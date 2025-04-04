@@ -1,6 +1,71 @@
-
 <!-- <app-books></app-books>
 <app-cart></app-cart> -->
+<nav
+  style="
+    background-color: #7c3aed;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+  "
+>
+  <div
+    style="
+      display: flex;
+      justify-content: right;
+      gap: 40px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    "
+  >
+    <a
+      href=""
+      routerLink="/cart"
+      style="
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 5px;
+      "
+      onmouseover="this.style.color='#7c3aed'; this.style.backgroundColor='white'"
+      onmouseout="this.style.color='white'; this.style.backgroundColor='transparent'"
+    >
+      Cart
+    </a>
+    <a
+      href=""
+      routerLink="/login"
+      style="
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 5px;
+      "
+      onmouseover="this.style.color='#7c3aed'; this.style.backgroundColor='white'"
+      onmouseout="this.style.color='white'; this.style.backgroundColor='transparent'"
+    >
+      Login
+    </a>
+    <a
+      href=""
+      routerLink="/register"
+      style="
+        text-decoration: none;
+        color: white;
+        padding: 8px 16px;
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 5px;
+      "
+      onmouseover="this.style.color='#7c3aed'; this.style.backgroundColor='white'"
+      onmouseout="this.style.color='white'; this.style.backgroundColor='transparent'"
+    >
+      Register
+    </a>
+  </div>
+</nav>
 
-<router-outlet></router-outlet>
 
+    <router-outlet></router-outlet>

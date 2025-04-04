@@ -1,0 +1,54 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f3f4f6;">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"
+        style="border: 2px solid #7c3aed; padding: 20px; border-radius: 10px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); width: 350px;">
+
+
+        <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email</label>
+            <input type="email" id="email" placeholder="Enter email" formControlName="email"
+                style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; outline: none; transition: border 0.3s;">
+            <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched"
+                style="padding: 8px; background-color: #fecaca; color: #b91c1c; border-radius: 5px; margin-top: 5px;">
+                <p *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</p>
+                <p *ngIf="registerForm.get('email')?.errors?.['email']">Enter a valid email.</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+            <label for="password" style="display: block; font-weight: bold; margin-bottom: 5px;">Password</label>
+            <input type="password" id="password" placeholder="Enter password" formControlName="password"
+                style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; outline: none; transition: border 0.3s;">
+            <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched"
+                style="padding: 8px; background-color: #fecaca; color: #b91c1c; border-radius: 5px; margin-top: 5px;">
+                <p *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</p>
+                <p *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters.
+                </p>
+                <p *ngIf="registerForm.get('password')?.errors?.['pattern']">Password must contain at least 1 uppercase,
+                    1 lowercase, and 1 number.</p>
+            </div>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="confirmPassword" style="display: block; font-weight: bold; margin-bottom: 5px;">Confirm
+                Password</label>
+            <input type="password" id="password" placeholder="Enter password" formControlName="confirmPassword"
+                style="width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 5px; outline: none; transition: border 0.3s;">
+            <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched"
+                style="padding: 8px; background-color: #fecaca; color: #b91c1c; border-radius: 5px; margin-top: 5px;">
+                <p *ngIf="registerForm.get('confirmPassword')?.errors?.['required']">Password is required.</p>
+                <!-- <p *ngIf="registerForm.get('confirmPassword')?.errors?.['minlength']">Password must be at least 6 characters.</p>
+                <p *ngIf="registerForm.get('confirmPassword')?.errors?.['pattern']">Password must contain at least 1 uppercase, 1 lowercase, and 1 number.</p> -->
+                <p *ngIf="registerForm.errors?.['passwordMismatch']"
+                    style="padding: 8px; background-color: #fecaca; color: #b91c1c; border-radius: 5px; margin-top: 5px;">
+                    Passwords do not match.
+                </p>
+            </div>
+        </div>
+
+
+        <button type="submit" [disabled]="!registerForm.valid"
+            style="width: 100%; padding: 10px; background-color: #7c3aed; color: white; font-weight: bold; border: none; border-radius: 5px; cursor: pointer; transition: background 0.3s;"
+            [ngStyle]="{ 'background-color': registerForm.valid ? '#7c3aed' : '#9ca3af' }">
+            Submit
+        </button>
+    </form>
+</div>
